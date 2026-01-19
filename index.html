@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>วันครบรอบของเรา ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+        text-align: center;
+        overflow: hidden;
+    }
+
+    h1 {
+        margin-top: 40px;
+        color: #fff;
+        font-size: 42px;
+        text-shadow: 2px 2px 6px #ff4d6d;
+    }
+
+    img {
+        width: 220px;
+        border-radius: 20px;
+        margin-top: 20px;
+        box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    }
+
+    #days {
+        font-size: 28px;
+        margin-top: 20px;
+        color: #fff;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 14px 30px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        background: #ff4d6d;
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+        background: #ff1e50;
+    }
+
+    .heart {
+        position: fixed;
+        color: red;
+        font-size: 20px;
+        animation: fall linear infinite;
+        top: -20px;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>สุขสันต์วันครบรอบ 💖</h1>
+
+<img src="love.jpg">
+
+<div id="days"></div>
+
+<button onclick="surprise()">กดดูเซอร์ไพรส์ 💌</button>
+
+<audio autoplay loop>
+    <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    // 🔥 แก้วันที่เริ่มคบตรงนี้
+    const startDate = new Date("2026-12-25");
+    const today = new Date();
+    const diff = today - startDate;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    document.getElementById("days").innerHTML =
+        "เราคบกันมาแล้ว <b>" + days + "</b> วัน ❤️";
+
+    function surprise() {
+        alert("รักเธอที่สุดเลยนะ 💕 อยู่ด้วยกันแบบนี้ตลอดไป");
+    }
+
+    // หัวใจตก
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }, 300);
+</script>
+
+</body>
+</html>
